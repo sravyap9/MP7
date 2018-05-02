@@ -218,7 +218,58 @@ public class MainActivity extends AppCompatActivity {
     {
         if(!gameOver)
         {
-            
+            if (playerOneTurn)
+            {
+                Toast.makeText(getApplicationContext(), "Player Two Turn",
+                        Toast.LENGTH_SHORT).show();
+                clicked.setText("X");
+
+                String winText = checkWin();
+
+                if (winText == "win")
+                {
+                    Toast.makeText(getApplicationContext(), "Player One Wins!",
+                            Toast.LENGTH_LONG).show();
+                    gameOver = true;
+                    playerOneScore++;
+                    playerOneScoreText.setText("Player One: " + playerOneScore);
+
+                }
+                else if (winText == "draw")
+                {
+                    Toast.makeText(getApplicationContext(), "It's a Draw!",
+                            Toast.LENGTH_LONG).show();
+                    gameOver = true;
+                }
+
+                playerOneTurn = false;
+            }
+
+            else
+            {
+                Toast.makeText(getApplicationContext(), "Player One Turn",
+                        Toast.LENGTH_SHORT).show();
+                clicked.setText("O");
+
+                String winText = checkWin();
+
+                if (winText == "win")
+                {
+                    Toast.makeText(getApplicationContext(), "Player Two Wins!",
+                            Toast.LENGTH_LONG).show();
+                    gameOver = true;
+                    playerTwoScore++;
+                    playerTwoScoreText.setText("Player Two: " + playerTwoScore);
+                }
+                else if (winText == "draw")
+                {
+                    Toast.makeText(getApplicationContext(), "It's a Draw!",
+                            Toast.LENGTH_LONG).show();
+                    gameOver = true;
+                }
+
+                playerOneTurn = true;
+            }
         }
     }
 
