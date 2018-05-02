@@ -13,7 +13,6 @@ public class MainActivity extends AppCompatActivity {
 
     boolean gameOver;
     boolean playerOneTurn;
-    boolean isDraw;
 
     TextView playerOneScoreText;
     TextView playerTwoScoreText;
@@ -36,8 +35,6 @@ public class MainActivity extends AppCompatActivity {
     int playerTwoScore = 0;
 
     ArrayList<Button> buttonList;
-
-    char board[][] = new char[3][3];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -192,14 +189,6 @@ public class MainActivity extends AppCompatActivity {
 
     public void clearBoard()
     {
-        for (int i = 0; i < 3; i++)
-        {
-            for (int j = 0; j < 3; j++)
-            {
-                board[i][j] = ' ';
-            }
-        }
-
         for (int i = 0; i < buttonList.size(); i++)
         {
             buttonList.get(i).setText(" ");
@@ -210,7 +199,6 @@ public class MainActivity extends AppCompatActivity {
     {
         gameOver = false;
         playerOneTurn = true;
-        isDraw = false;
         clearBoard();
     }
 
